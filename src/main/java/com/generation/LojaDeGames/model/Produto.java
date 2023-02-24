@@ -19,7 +19,7 @@ public class Produto {
     private Long id;
 
     @NotBlank(message = "O atributo titulo é obrigatorio!")
-    @Size(min = 5, max = 100, message = "O atributo título deve conter no mínimo 05 e no máximo 100 caracteres")
+    @Size(min = 5, message = "O atributo título deve conter no mínimo 05 e no máximo 100 caracteres")
     private String titulo;
 
     @NotBlank(message = "O atributo texto é obrigatório!")
@@ -36,6 +36,10 @@ public class Produto {
     @ManyToOne
     @JsonIgnoreProperties("produto")
     private Categoria categoria;
+
+    @ManyToOne
+    @JsonIgnoreProperties("produto")
+    private Usuario usuario;
 
     public Double getPreco() {
         return preco;
@@ -83,5 +87,13 @@ public class Produto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
