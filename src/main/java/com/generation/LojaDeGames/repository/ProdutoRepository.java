@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.generation.LojaDeGames.model.Produto;
 
 import java.util.List;
-
+@Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     public List<Produto> findAllByTituloContainingIgnoreCase(@Param("titulo") String titulo);
